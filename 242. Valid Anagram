@@ -1,0 +1,37 @@
+242. Valid Anagram
+2024/02/27 Time 30:01
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    let isAn = 0;
+    let occ1 = 0;
+    let occ2 = 0;
+    let failed = 0;
+    if (s.length == t.length){
+        for (let i=0; i<s.length && failed == 0; i++){
+            for (let j=0; j<s.length; j++){
+                if (s[i] == s[j]){
+                    occ1++;
+                }
+            }
+            for (let j=0; j<s.length; j++){
+                if (t[i] == t[j]){
+                    occ2++;
+                }
+            }
+            if(occ1 != occ2){
+                failed = 1;
+            }
+            occ1=0;
+            occ2=0;
+        }
+        if (failed == 0) {
+            isAn = 1;
+        }
+    }
+    return isAn != 1;
+};
