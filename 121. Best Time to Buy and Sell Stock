@@ -1,0 +1,33 @@
+121. Best Time to Buy and Sell Stock
+2024/02/27 Time 32:24
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let sellPrice = 0; // get the max number
+    let buyPrice = 10**4; // get the min number 
+    let minIdx;
+
+    for (let i = 0; i<prices.length; i++){
+        if (buyPrice > prices[i]){
+            buyPrice = prices[i]
+            minIdx = i;
+        }
+    }
+    // find the max
+    for (let n = minIdx + 1; n<prices.length - minIdx+1; n++){
+        if (sellPrice < prices[n]){
+            sellPrice = prices[n];
+        }
+    }
+    
+    return sellPrice - buyPrice > 0 ? sellPrice - buyPrice : 0;
+};
+
+let prices1 = [7,1,5,3,6,4];
+let prices2 = [7,6,4,3,1];
+
+maxProfit(prices1);
+maxProfit(prices2);
