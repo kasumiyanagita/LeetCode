@@ -1,0 +1,39 @@
+1. Two Sum (2024/02/26) Time: 20:18
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+ let ex1 = [2,7,11,15];
+ let exT1 = 9;
+
+ let ex2 = [3,2,4];
+ let exT2 = 6;
+
+ let ex3 = [3,3];
+ let exT3 = 6;
+
+var twoSum = function(nums, target) {
+    let answer = [];
+    let found = 0;
+    for (let i = 0; i<nums.length && found == 0; i++){
+        for (let j = 0; j<nums.length-1 && found == 0; j++){
+            if (nums[i] + nums[j] == target && i != j){
+                answer.push(i, j);
+                found = 1;
+            }
+        }
+    }
+    return answer;
+};
+
+// output of the first example
+console.log(twoSum(ex1, exT1));
+
+// output of the second example
+console.log(twoSum(ex2, exT2));
+
+// output of the third example
+console.log(twoSum(ex3, exT3));
